@@ -19,9 +19,12 @@ before_install:
 - sfdx plugins --core
 - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername -a HubOrg
 
-script:
-- sfdx force:source:convert --outputdir mdapi_output_dir --packagename managed_pkg_name
-- sfdx force:mdapi:deploy -d mdapi_output/ -u HubOrg -w 5
+deploy:
+  # deploy develop to the staging environment
+  - provider: script
+    script: bash scripts/deploy.sh scratch
+   #  on:
+    #   branch: develop
   # deploy master to production
   #- provider: script
    # script: bash scripts/deploy.sh production
