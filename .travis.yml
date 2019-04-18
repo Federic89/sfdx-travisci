@@ -21,7 +21,6 @@ before_install:
 
 script: bash scripts/deploy.sh scratch
     on:
-      
       branch: develop
   # deploy master to production
   #- provider: script
