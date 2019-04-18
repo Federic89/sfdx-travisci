@@ -19,10 +19,7 @@ before_install:
 - sfdx plugins --core
 - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername -a HubOrg
 
-deploy:
-  # deploy develop to the staging environment
-  - provider: script
-    script: bash scripts/deploy.sh scratch
+script: bash ./deploy.sh scratch
    #  on:
     #   branch: develop
   # deploy master to production
