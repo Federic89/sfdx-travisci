@@ -1,3 +1,5 @@
+echo $1
+
 if [ $1 == 'production' ]; then
 	echo "PRODUCTION"
 	sfdx force:source:convert --outputdir mdapi_output_dir --packagename managed_pkg_name
