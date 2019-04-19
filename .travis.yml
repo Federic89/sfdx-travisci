@@ -19,8 +19,8 @@ before_install:
 - sfdx plugins --core
 - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername -a HubOrg
 
-script: bash ./deploy.sh scratch
-   #  on:
+script: bash ./deploy.sh $TRAVIS_BRANCH 
+   #  on: 
     #   branch: develop
   # deploy master to production
   #- provider: script
