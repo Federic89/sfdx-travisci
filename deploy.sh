@@ -1,15 +1,18 @@
-if [ $1 == 'production' ]; then
-	echo "PRODUCTION"
-	sfdx force:source:convert --outputdir mdapi_output_dir --packagename managed_pkg_name
-	sfdx force:mdapi:deploy -d mdapi_output/ -u HubOrg -w 5
-	exit 0
-fi
+echo $1
 
-if [ $1 == 'scratch' ]; then
-   echo "SCRATCH ORG"
-   sfdx force:org:create -v HubOrg -s -f config/project-scratch-def.json -a ciorg --wait 4
-   sfdx force:org:display -u ciorg
-   sfdx force:source:push -u ciorg
-   sfdx force:user:display   
-   exit 0
+if [ $1 == 'SandBox_1' ]; then
+    sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername -a SandBox1_Hub
+    sfdx force:org:list
+    #deploy TODO
+    sfdx force:source:convert --outputdir mdapi_output_dir --packagename managed_pkg_name
+    sfdx force:mdapi:deploy -d /home/travis/build/Federic89/sfdx-travisci/mdapi_output_dir/ -u SandBox1_Hub -w 5
+    exit 0
+fi
+if [ $1 == 'SandBox_2' ]; then
+    sfdx force:auth:jwt:grant --clientid $CONSUMERKEY_ORG2 --jwtkeyfile assets/server.key --username $USERNAME_ORG2 --setdefaultdevhubusername -a SandBox2_Hub
+    sfdx force:org:list
+    #deploy TODO
+    sfdx force:source:convert --outputdir mdapi_output_dir --packagename managed_pkg_name
+    sfdx force:mdapi:deploy -d /home/travis/build/Federic89/sfdx-travisci/mdapi_output_dir/ -u SandBox2_Hub -w 5
+    exit 0
 fi
