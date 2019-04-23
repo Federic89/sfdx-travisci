@@ -4,7 +4,7 @@ if [ $1 == 'SandBox_1' ]; then
     sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername -a SandBox1_Hub
     exit 0
 fi
-if [ $1 == 'SandBox_1' ]; then
+if [ $1 == 'SandBox_2' ]; then
     sfdx force:auth:jwt:grant --clientid $CONSUMERKEY_ORG2 --jwtkeyfile assets/server.key --username $USERNAME_ORG2 --setdefaultdevhubusername -a SandBox2_Hub
     exit 0
 fi
