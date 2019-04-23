@@ -1,6 +1,6 @@
 public with sharing class myclass {
 	public myclass() {
-		system.debug('ciao');
+		system.debug('ciao SandBox_1');
 		Object__c c = new Object__c();
 	}
 
