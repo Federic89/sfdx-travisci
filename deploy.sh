@@ -1,6 +1,7 @@
 echo $1
 
 if [ $1 == 'SandBox_1' ]; then
+    echo 'sono stronzo'
     sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername -a SandBox1_Hub
     sfdx force:org:list
     #deploy TODO
