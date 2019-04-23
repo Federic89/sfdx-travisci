@@ -5,7 +5,7 @@ if [ $1 == 'SandBox_1' ]; then
     sfdx force:org:list
     #deploy TODO
     sfdx force:source:convert --outputdir mdapi_output_dir --packagename managed_pkg_name
-    sfdx force:mdapi:deploy -d mdapi_output/ -u SandBox1_Hub -w 5
+    sfdx force:mdapi:deploy -d /home/travis/build/Federic89/sfdx-travisci/mdapi_output/ -u SandBox1_Hub -w 5
     exit 0
 fi
 if [ $1 == 'SandBox_2' ]; then
@@ -13,7 +13,7 @@ if [ $1 == 'SandBox_2' ]; then
     sfdx force:org:list
     #deploy TODO
     sfdx force:source:convert --outputdir mdapi_output_dir --packagename managed_pkg_name
-    sfdx force:mdapi:deploy -d mdapi_output/ -u SandBox2_Hub -w 5
+    sfdx force:mdapi:deploy -d /home/travis/build/Federic89/sfdx-travisci/mdapi_output/ -u SandBox2_Hub -w 5
     exit 0
 fi
 
