@@ -9,7 +9,8 @@ services:
   - docker
 
 before_install:
-- docker run --rm ncino/ci-sfdx-lite
+- docker pull ncino/ci-sfdx-lite
+#- docker run --rm ncino/ci-sfdx-lite
 - export SFDX_AUTOUPDATE_DISABLE=false
 - export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
 - export SFDX_DOMAIN_RETRY=300
