@@ -24,9 +24,14 @@ services:
   - docker
 
 before_install:
-  - docker pull ncino/ci-sfdx-lite
+    - docker pull ncino/ci-sfdx-lite
+    - docker run -d -p 127.0.0.1:80:4567 ncino/ci-sfdx-lite /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+    - docker ps -a
+    - docker run ncino/ci-sfdx-lite /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 
-script: bash ./deploy.sh $TRAVIS_BRANCH 
+script: sfdx -v
+    #bash ./deploy.sh $TRAVIS_BRANCH 
+
    #  on: 
     #   branch: develop
   # deploy master to production
