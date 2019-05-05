@@ -24,7 +24,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t ncino/ci-sfdx-lite
+  - docker pull ncino/ci-sfdx-lite
 
 script: bash ./deploy.sh $TRAVIS_BRANCH 
    #  on: 
