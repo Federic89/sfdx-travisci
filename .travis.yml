@@ -27,7 +27,8 @@ before_install:
     - docker pull ncino/ci-sfdx-lite
     - docker run -d -p 127.0.0.1:80:4567 ncino/ci-sfdx-lite /bin/sh -c "cd /root/ci-sfdx-lite; bundle exec foreman start;"
     - docker ps -a
-    - docker run ncino/ci-sfdx-lite /bin/sh -c "cd /root/ci-sfdx-lite; bundle exec rake test"
+    - sfdx -v
+    #- docker run ncino/ci-sfdx-lite /bin/sh -c "cd /root/ci-sfdx-lite; bundle exec rake test"
 
 script: sfdx -v
     #bash ./deploy.sh $TRAVIS_BRANCH 
